@@ -4,6 +4,8 @@ import { takeLatest, put } from 'redux-saga/effects';
 import logger from 'redux-logger';
 import axios from 'axios';
 
+const sagaMiddleware = createSagaMiddleware();
+
 const gifSearchList = (state = [], action) => {
     switch (action.type) {
         case 'SET_SEARCHLIST_GIFS':
@@ -39,7 +41,7 @@ const store = createStore(
     applyMiddleware(sagaMiddleware, logger)
 );
 
-const sagaMiddleware = createSagaMiddleware();
+
 sagaMiddleware.run(rootSaga);
 
 export default store;
