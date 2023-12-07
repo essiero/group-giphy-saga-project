@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import SearchItem from "../SearchItem/SearchItem";
 
 function SearchList() {
     const gifList = useSelector(store => store.gifSearchList)
@@ -28,7 +29,7 @@ function SearchList() {
             <button onClick={dispatchQuery} type="submit">Search</button>
             <div id="gallery">         
             {gifList.map((gif) => (
-                <img src={gif.images.original.url}></img>
+                <SearchItem gif={gif} />
             ))}</div> 
         </div>
     )
