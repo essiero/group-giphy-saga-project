@@ -4,12 +4,13 @@ import { takeLatest, put } from 'redux-saga/effects';
 import logger from 'redux-logger';
 import axios from 'axios';
 
+
 const sagaMiddleware = createSagaMiddleware();
 
 const gifSearchList = (state = [], action) => {
     switch (action.type) {
         case 'SET_SEARCHLIST_GIFS':
-            return action.payload
+            return action.payload.data
         default:
             return state;
     }
@@ -19,7 +20,7 @@ function* getGifsFromGiphy() {
     try {
         const response = yield axios({
             method: 'GET',
-            url: `https://api.giphy.com/v1/gifs/search?q=cats&limit=10&api_key=pVkZImtH8Z2tLWXZIYKEpx9gg834IFtG`
+            url: `/api/search`
         }) 
         yield put({
             type: 'SET_SEARCHLIST_GIFS',
