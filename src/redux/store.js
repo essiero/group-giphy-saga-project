@@ -16,11 +16,11 @@ const gifSearchList = (state = [], action) => {
     }
 }
  
-function* getGifsFromGiphy() {
+function* getGifsFromGiphy(action) {
     try {
         const response = yield axios({
             method: 'GET',
-            url: `/api/search`
+            url: `/api/search/${action.payload}`
         }) 
         yield put({
             type: 'SET_SEARCHLIST_GIFS',
