@@ -1,8 +1,8 @@
+import Header from "../Header/Header";
+
 function App() {
   return (
-    <div>
-      <h1>Giphy Search!</h1>
-    </div>
+    <Header />
   );
 }
 
