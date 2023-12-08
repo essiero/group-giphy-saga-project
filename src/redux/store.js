@@ -24,12 +24,30 @@ const gifFavoritesList = (state = [], action) => {
     }
 }
 
+function* setCategory(action) {
+    try {
+        const response = yield axios ({
+            method: 'PUT',
+            url: `/api/favorites/${action.payload.id}`,
+            data: {category: action.payload.data }
+        })
+        yield put ({
+        type: "SAGA/GET_FAVORITES",
+        payload: response.data
+    }) 
+    } catch (error) {
+        console.log('Error in GETTING favorites', error)
+    }
+    
+}
+
 function* getFavorites(){
     try {
         const response = yield axios ({
             method: 'GET',
             url: '/api/favorites'
         })
+    console.log(response.data)
         yield put ({
             type: "SET_FAVORITE_LIST",
             payload: response.data
@@ -73,6 +91,7 @@ function* rootSaga() {
 yield takeLatest('SAGA/GET_SEARCHLIST_GIFS', getGifsFromGiphy)
 yield takeLatest('SAGA/ADD_NEW_FAVORITE', addNewFavorite)
 yield takeLatest('SAGA/GET_FAVORITES', getFavorites)
+yield takeLatest('SAGA/SET_CATEGORY', setCategory)
 }
 
 const store = createStore(
