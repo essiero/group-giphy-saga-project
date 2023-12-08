@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import SearchList from "../SearchList/SearchList";
 import {useHistory, HashRouter as Router, Route } from "react-router-dom";
 import FavoritesList from "../FavoritesList/FavoritesList";
-import Nav from "../Nav/Nav";
+import NavBar from "../Nav/Nav";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
     <Router>
     <Header />
   
-  <Nav />
+  <NavBar />
 
     <Route exact path="/">
     <SearchList />

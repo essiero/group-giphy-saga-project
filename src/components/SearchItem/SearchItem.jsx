@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import  Button  from "react-bootstrap/Button";
 
 function SearchItem ({gif}) {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function SearchItem ({gif}) {
     return (
         <>
         <img src={gif.images.original.url}></img>
-        <button onClick={dispatchFavorite}>FAV that</button>
+        <Button variant="primary" onClick={dispatchFavorite}>FAV that</Button>
         </>
     )
 }

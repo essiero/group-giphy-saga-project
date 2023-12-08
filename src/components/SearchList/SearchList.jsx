@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchItem from "../SearchItem/SearchItem";
+import { Button } from "react-bootstrap";
 
 function SearchList() {
     const gifList = useSelector(store => store.gifSearchList)
@@ -26,7 +27,7 @@ function SearchList() {
             placeholder="Enter search query here" 
             value={query}
             onChange={handleQueryChange}></input>
-            <button onClick={dispatchQuery} type="submit">Search</button>
+            <Button variant="success" onClick={dispatchQuery} type="submit">Search</Button>
             <div id="gallery">         
             {gifList.map((gif) => (
                 <SearchItem gif={gif} />
