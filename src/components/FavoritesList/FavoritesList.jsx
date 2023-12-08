@@ -18,7 +18,7 @@ function FavoritesList() {
   return(
     <div>
   {favoritesList.map((favoriteGif) => (
-    <FavoritesItem favoriteGif={favoriteGif}/>
+    <FavoritesItem key={favoriteGif.id} favoriteGif={favoriteGif}/>
   ))}
   </div>
   )
